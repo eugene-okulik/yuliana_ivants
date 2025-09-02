@@ -11,4 +11,3 @@ for word in words:
         words_with_int.append(word + 'ing')
 
 print(' '.join(words_with_int))
-
