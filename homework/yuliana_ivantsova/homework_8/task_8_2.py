@@ -4,6 +4,7 @@ def generator_fibonacci():
         yield a
         a, b = b, a + b
 
+
 def get_num_from_fibonacci(num):
 
     fib_generator = generator_fibonacci()

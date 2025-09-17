@@ -1,9 +1,10 @@
 import random
 
+
 salary = int(input("Введите желаемую заработную плату: "))
 
-def assigning_bonus(salary):
 
+def assigning_bonus(salary):
     bonus = random.choice([True, False])
 
     if bonus:
@@ -12,6 +13,7 @@ def assigning_bonus(salary):
         print("Бонус не получен, увы")
 
     return salary, bonus
+
 
 new_salary, bonus = assigning_bonus(salary)
 print(f"{salary}, {bonus} - '${new_salary}'")
