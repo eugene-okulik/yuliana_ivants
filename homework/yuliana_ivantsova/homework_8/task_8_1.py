@@ -2,7 +2,6 @@ import random
 
 salary = int(input("Введите желаемую заработную плату: "))
 
-
 def assigning_bonus(salary):
 
     bonus = random.choice([True, False])
