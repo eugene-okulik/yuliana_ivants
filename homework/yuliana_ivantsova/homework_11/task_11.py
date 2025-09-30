@@ -64,23 +64,23 @@ class SchoolBook(Book):
 school_book_one = SchoolBook(
     "Алгебра", "Иванов", 200, "978", True,
     "Математика", 9, True
-                             )
+)
 school_book_two = SchoolBook(
     "История России", "Петров", 300, "9788", False,
     "История", 10, True
-                             )
+)
 school_book_three = SchoolBook(
     "География", "Сидоров", 250, "97873", False,
     "География", 8, False
-                             )
+)
 school_book_four = SchoolBook(
     "Физика", "Кузнецов", 350, "97844", False, "Физика",
     11, True
-                             )
+)
 school_book_five = SchoolBook(
     "Биология", "Васильев", 280, "97855", False,
     "Биология", 7, True
-                             )
+)
 
 book_school_list = [
     school_book_one, school_book_two, school_book_three,
