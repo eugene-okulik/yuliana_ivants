@@ -23,7 +23,7 @@ student_id = cursor.lastrowid
 # Добавляем книги
 query_add_book = '''
 INSERT INTO books (title, taken_by_student_id)
-VALUES (%s, %s, %s)
+VALUES (%s, %s)
 '''
 value_books = [
     ('Капля духов в открытую рану', student_id),
@@ -57,7 +57,7 @@ subjects_ids = {}
 for subject in subjects:
     cursor.execute(query_add_subjects, (subject,))
     subjects_id = cursor.lastrowid
-    subjects_ids['title'] = subjects_id
+    subjects_ids[subject] = subjects_id
 
 # Добавляем уроки
 query_add_lesson = '''
@@ -74,8 +74,8 @@ for title, subjects_id in lessons:
     cursor.execute(query_add_lesson, (title, subjects_id))
     lesson_ids.append(cursor.lastrowid)
 
-# Все оценки студента
-query_mark = '''
+# Добавляем оценки студента
+query_mark_insert = '''
 INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)
 '''
 value_mark = [
@@ -84,7 +84,13 @@ value_mark = [
     (5, lesson_ids[2], student_id),
     (5, lesson_ids[3], student_id)
 ]
-cursor.execute(query_mark, value_mark)
+cursor.executemany(query_mark_insert, value_mark)
+
+# Все оценки
+query_mark_select = '''
+SELECT value FROM marks WHERE student_id = %s
+'''
+cursor.execute(query_mark_select, (student_id,))
 marks = cursor.fetchall()
 print(marks)
 
